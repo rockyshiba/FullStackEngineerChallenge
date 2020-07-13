@@ -41,6 +41,40 @@ const router = app => {
             });
         });
     });
+
+    // Add employee by POST
+    app.post('/employee/add', (request, response) => {
+        let employee = request.body.employee;
+        if(!employee) {
+            return response.status(400).send({
+                error: true,
+                message: 'Employee not provided'
+            });
+        }
+        dbConn.query("INSERT INTO employees SET ? ", { employee: employee }, (err, results, fields) => {
+            if(err) throw err;
+            return response.send({ data: results });
+        });
+    });
+
+    // Update employee by POST
+    app.post('/employee/update/', (request, response) => {
+        let uid = request.body.uid;
+        let employee = request.body.employee;
+        dbConn.query("UPDATE employees SET employee = ? WHERE id = ?", [employee, uid], (err, results, fields) => {
+            if(err) throw err;
+            return response.send({ data: results });
+        });
+    });
+
+    // Delete employee by DELETE
+    app.delete('/employee/delete/', (request, response) => {
+        let uid = request.body.uid;
+        dbConn.query('DELETE FROM employees WHERE id =  ?', [uid], (err, results, fields) => {
+            if(err) throw err;
+            return response.send({ data: results });
+        });
+    });
 }
 
 module.exports = router;
