@@ -48,8 +48,7 @@ Design a web application that allows employees to submit feedback toward each ot
 
 ### API
 
-- Select all employees
-- Select employee by id
-- Create employee
-- Delete employee by id
-- Edit employee by id
+- Get all performance reviews
+- Get performance reviews by reviewers, reviewees
+- Create performance review
+- Update performance review

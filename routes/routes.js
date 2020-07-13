@@ -78,6 +78,42 @@ const router = app => {
             return response.send({ data: results });
         });
     });
+
+    // Get all performance reviews
+    app.get('/reviews/', (request, response) => {
+        dbConn.query('SELECT * FROM performance_reviews', (err, results, fields) => {
+            if(err) throw err;
+            return response.send({ data: results });
+        });
+    });
+
+    // Get performance review by reviewers, reviewees
+    app.get('/reviews/:id', (request, response) => {
+        let id = request.params.id;
+        dbConn.query('SELECT * FROM performance_reviews WHERE reviewer = ? OR reviewee = ?', [id, id], (err, results, fields) => {
+            if(err) throw err;
+            return response.send({ data: results });
+        });
+    });
+
+    // Add performance review
+    app.post('/reviews/add', (request, response) => {
+        let review = request.body;
+        dbConn.query('INSERT INTO performance_reviews(reviewer, reviewee, comments) VALUES (?,?,?);', [review.reviewer, review.reviewee, review.comments], (err, results, fields) => {
+            if(err) throw err;
+            return response.send({ data: results });
+        });
+    });
+
+    // Update performance review
+    app.post('/reviews/update', (request, response) => {
+        let review = request.body;
+        let timestamp = new Date().toISOString();
+        dbConn.query('UPDATE performance_reviews SET comments = ?, updated = ? WHERE id = ?', [review.comments, timestamp, review.id], (err, results, fields) => {
+            if(err) throw err;
+            return response.send({ data: results });
+        });
+    });
 }
 
 module.exports = router;

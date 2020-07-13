@@ -62,3 +62,54 @@ describe("Employees", function() {
         });
     });
 });
+
+describe("performance reviews", function(){
+    it("should query all performance reviews", (done) => {
+        server.get('/reviews/')
+        .expect('Content-type',/json/)
+        .expect(200)
+        .end((err, res) => {
+            res.status.should.equal(200);
+            done();
+        });
+    });
+
+    it("should query reviews by reviewer id or reviewee id", (done) => {
+        server.get('/reviews/2')
+        .expect('Content-type', /json/)
+        .expect(200)
+        .end((err, res) => {
+            res.status.should.equal(200);
+            done();
+        });
+    });
+
+    it("should add a performance review", (done) => {
+        server.post('/reviews/add')
+        .send({
+            reviewer: 1,
+            reviewee: 2,
+            comments: "Great teamwork!"
+        })
+        .expect('Content-type',/json/)
+        .expect(200)
+        .end((err, res) => {
+            res.status.should.equal(200);
+            done();
+        });
+    });
+
+    it("should update a performance review by id", (done) => {
+        server.post('/reviews/update')
+        .send({
+            id: 1,
+            comments: "Teamwork no good!"
+        })
+        .expect('Content-type',/json/)
+        .expect(200)
+        .end((err, res) => {
+            res.status.should.equal(200);
+            done();
+        });
+    });
+});
