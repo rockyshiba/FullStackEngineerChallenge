@@ -24,6 +24,23 @@ const router = app => {
             return response.send({data: results});
         });
     });
+
+    // Get employee by id
+    app.get('/employees/:id', (request, response) => {
+        let uid = request.params.id;
+        if(!uid) {
+            return response.status(400).send({
+                error: true,
+                message: 'User id not provided'
+            });
+        }
+        dbConn.query('SELECT * FROM employees WHERE id=?', uid, (err, results, fields) => {
+            if(err) throw err;
+            return response.send({
+                data: results[0]
+            });
+        });
+    });
 }
 
 module.exports = router;
