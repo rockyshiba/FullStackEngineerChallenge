@@ -23,12 +23,12 @@ export class EmployeeComponent implements OnInit {
       });
   }
 
-  onDelete(id: number): void {
-    // delete employee
-    this.employeeService.deleteEmployee(id).subscribe( results => {
-      this.message = `Employee:${id} was deleted`;
-    });
-    // refresh employee list
-    this.employeeService.getEmployees().subscribe( results => this.employees = results.data );
-  }
+  // onDelete(id: number): void {
+  //   // delete employee
+  //   this.employeeService.deleteEmployee(id).subscribe( results => {
+  //     this.message = `Employee:${id} was deleted`;
+  //   });
+  //   // refresh employee list
+  //   this.employeeService.getEmployees().subscribe( results => this.employees = results.data );
+  // }
 }

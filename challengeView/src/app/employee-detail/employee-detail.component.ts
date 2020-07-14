@@ -42,4 +42,12 @@ export class EmployeeDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+  onDelete(id: number): void {
+    // delete employee
+    this.employeeService.deleteEmployee(id).subscribe( results => {
+      this.message = `Employee:${id} was deleted`;
+    });
+    this.goBack();
+  }
 }
