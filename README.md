@@ -39,16 +39,7 @@ Design a web application that allows employees to submit feedback toward each ot
 
 ## TODO
 
-### Database
+### Frontend
 
-- Set up schema
-- Departments
-- Employees
-- Performance Reviews (each performance review involves two employees from employee table)
-
-### API
-
-- Get all performance reviews
-- Get performance reviews by reviewers, reviewees
-- Create performance review
-- Update performance review
+* Interfaces (Department, Employee, Review)
+* Services (Employee, Review)
