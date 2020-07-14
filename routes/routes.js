@@ -71,7 +71,7 @@ const router = app => {
     });
 
     // Delete employee by DELETE
-    app.delete('/employees/delete/', (request, response) => {
+    app.post('/employees/delete/', (request, response) => {
         let uid = request.body.id;
         dbConn.query('DELETE FROM employees WHERE id = ?', [uid], (err, results, fields) => {
             if(err) throw err;
