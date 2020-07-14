@@ -29,12 +29,12 @@ export class EmployeeService {
 
   // Add employee
   addEmployee(employee: Employee): Observable<any> {
-    return this.http.post<any>(`${this.url}/employees/add`, employee);
+    return this.http.post<any>(`${this.url}/employees/add`, { ...employee });
   }
 
   // Update employee
   updateEmployee(employee: Employee): Observable<any> {
-    return this.http.post<any>(`${this.url}/employees/update/`, employee);
+    return this.http.post<any>(`${this.url}/employees/update/`, { ...employee });
   }
 
   // Delete employee
