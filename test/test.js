@@ -21,7 +21,7 @@ describe("Employees", function() {
             first_name: 'Rocky', 
             last_name: 'Shiba', 
             dob: '2010-04-01', 
-            department: 2, 
+            // department: 2, 
             role_title: 'Engineer'})
         .expect("Content-type", /json/)
         .expect(200)
@@ -38,7 +38,7 @@ describe("Employees", function() {
             first_name: 'Rocky',
             last_name: 'Shibe',
             dob: '2010-04-01',
-            department: 1,
+            // department: 1,
             role_title: 'Accountant'
         })
         .expect("Content-type", /json/)

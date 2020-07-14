@@ -10,6 +10,7 @@ import { Employee } from 'src/Employee';
 export class EmployeeComponent implements OnInit {
 
   employees: Employee[];
+  message: string;
 
   constructor(
     private employeeService: EmployeeService
@@ -22,4 +23,12 @@ export class EmployeeComponent implements OnInit {
       });
   }
 
+  onDelete(id: number): void {
+    // delete employee
+    this.employeeService.deleteEmployee(id).subscribe( results => {
+      this.message = `Employee:${id} was deleted`;
+    });
+    // refresh employee list
+    this.employeeService.getEmployees().subscribe( results => this.employees = results.data );
+  }
 }

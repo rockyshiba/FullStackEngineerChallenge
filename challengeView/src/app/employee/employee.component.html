@@ -1,10 +1,12 @@
 <div class="container">
-    <h2>Employees</h2>
+    <h2>Employees</h2> | <a routerLink="/employees/add">Add employee</a>
 </div>
+<div *ngIf="message">{{message}}</div>
 <div class="container" *ngIf="employees">
     <ul>
         <li *ngFor="let e of employees">
-            {{ e.first_name }}
+            <a routerLink="/employees/{{e.id}}">{{e.first_name}} {{e.last_name}}</a>
+            <button (click)="onDelete(e.id)">Delete {{e.id}}</button>
         </li>
     </ul>
 </div>

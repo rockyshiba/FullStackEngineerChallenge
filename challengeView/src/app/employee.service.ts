@@ -29,6 +29,7 @@ export class EmployeeService {
 
   // Add employee
   addEmployee(employee: Employee): Observable<any> {
+    // employee.department = +employee.department;
     return this.http.post<any>(`${this.url}/employees/add`, { ...employee });
   }
 

@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Add a new employee</h2>
+    <div>
+        <label for="">
+            First name: <input [(ngModel)]="employee.first_name" type="text" name="fname" id="fname" />
+        </label>
+    </div>
+    <div>
+        <label for="">
+            Last name: <input [(ngModel)]="employee.last_name" type="text" />
+        </label>
+    </div>
+    <div>
+        <label for="">
+            Date of birth: <input [(ngModel)]="employee.dob" type="date" name="" id="" />
+        </label>
+    </div>
+    <!-- <div>
+        <label for="">
+            Department: <select [(ngModel)]="employee.department" name="" id="">
+                <option value="1">Accounting</option>
+                <option value="2">Engineering</option>
+            </select>
+        </label>
+    </div> -->
+    <div>
+        <label for="">
+            Role: <input [(ngModel)]="employee.role_title" type="text" name="" id="" />
+        </label>
+    </div>
+    <div>
+        <input (click)="onSubmit()" type="button" value="Submit">
+    </div>
+</div>

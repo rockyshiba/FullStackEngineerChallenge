@@ -1,10 +1,8 @@
-import { Department } from './Department';
-
 export interface Employee{
     id: number;
     first_name: string;
     last_name: string;
     dob: Date;
-    department: Department;
+    // department: number;
     role_title: string;
 }

@@ -51,8 +51,8 @@ const router = app => {
                 message: 'Employee not provided'
             });
         }
-        dbConn.query("INSERT INTO employees(first_name, last_name, dob, department, role_title) VALUES(?,?,?,?,?);", 
-        [employee.first_name, employee.last_name, employee.dob, employee.department, employee.role_title], 
+        dbConn.query("INSERT INTO employees(first_name, last_name, dob, role_title) VALUES(?,?,?,?);", 
+        [employee.first_name, employee.last_name, employee.dob, employee.role_title], 
         (err, results, fields) => {
             if(err) throw err;
             return response.send({ data: results });
@@ -62,8 +62,8 @@ const router = app => {
     // // Update employee by POST
     app.post('/employees/update/', (request, response) => {
         let employee = request.body;
-        dbConn.query("UPDATE employees SET first_name = ?, last_name = ?, dob = ?, department = ?, role_title = ? WHERE id = ?", 
-        [employee.first_name, employee.last_name, employee.dob, employee.department, employee.role_title, employee.id], 
+        dbConn.query("UPDATE employees SET first_name = ?, last_name = ?, dob = ?, role_title = ? WHERE id = ?", 
+        [employee.first_name, employee.last_name, employee.dob, employee.role_title, employee.id], 
         (err, results, fields) => {
             if(err) throw err;
             return response.send({ data: results });

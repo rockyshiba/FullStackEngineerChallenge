@@ -1,0 +1,36 @@
+<div class="container">
+    <div>
+        <button (click)="goBack()">Go back</button>
+    </div>
+    <div *ngIf="message">{{ message }}</div>
+    <div *ngIf="employee">
+        <h2>{{ employee.first_name }} {{ employee.last_name }}</h2>
+        <div>
+            id: {{ employee.id }}
+        </div>
+        <div>
+            <label for="">
+                First name: <input [(ngModel)]="employee.first_name" type="text">
+            </label>
+        </div>
+        <div>
+            <label for="">
+                Last name: <input [(ngModel)]="employee.last_name" type="text">
+            </label>
+        </div>
+        <div>
+            <!--TODO: display dob in input correctly-->
+            <label for="">
+                Date of birth: <input [(ngModel)]="employee.dob" type="date">
+            </label>
+        </div>
+        <div>
+            <label for="">
+                Role: <input [(ngModel)]="employee.role_title" type="text">
+            </label>
+        </div>
+        <div>
+            <input (click)="onUpdate()" type="button" value="{{status}}">
+        </div>
+    </div>
+</div>
