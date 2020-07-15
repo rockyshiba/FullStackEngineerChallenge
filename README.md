@@ -1,3 +1,18 @@
+# How to run
+
+This project is using a hosted MySQL database on Heroku using a NodeJS backend with Angular 10 as the frontend. 
+
+To run this project, access to the database is required through a configuration file with database details (provided on request).
+To run the node server, run "node app.js" in the console of your choice in the root directory of this project. This API is set to run on http://localhost:3001. You can change the port in app.js on line 2.
+To run the frontend, [make sure Angular 10 Cli is installed](https://angular.io/guide/setup-local#install-the-angular-cli) then run the command "ng serve --open" which will open a browser to http://localhost:4200.
+
+# About
+
+This project is definitely a WIP. There is a TODO at the bottom of this README. Currently, you can perform CRUD on employees and CRU on reviews (as outlined by the challenge).
+
+To interact with employees, navigate to http://localhost:4200/employees.
+To simulate an admin assigning a review process, navigate to http://localhost:4200/reviews.
+
 # Full Stack Developer Challenge
 This is an interview challengs. Please feel free to fork. Pull Requests will be ignored.
 
@@ -41,4 +56,6 @@ Design a web application that allows employees to submit feedback toward each ot
 
 ### Frontend
 
-* U for employee reviews
+* Admin view
+* Sessions for employee / admin
+* styling
