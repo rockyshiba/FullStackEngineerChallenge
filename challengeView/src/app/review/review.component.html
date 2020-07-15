@@ -1,0 +1,25 @@
+<div class="container">
+    <a routerLink="/reviews/add">Set up review</a>
+</div>
+<div *ngIf="reviews" class="container">
+    <ul>
+        <li *ngFor="let r of reviews">
+            <!--TODO: Display names-->
+            <div>
+                Reviewer: <a routerLink="/employees/{{r.reviewer}}">{{ r.reviewer }}</a>
+            </div>
+            <div>
+                Reviewee: <a routerLink="/employees/{{r.reviewee}}">{{ r.reviewee }}</a>
+            </div>
+            <div>
+                Created: {{ r.created | date }}
+            </div>
+            <div *ngIf="r.updated">
+                Updated: {{ r.updated | date }}
+            </div>
+            <div>
+                Comments: {{ r.comments }}
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Set Up Review</h2>
+    <div>
+        <label for="">
+            Reviewer(by id): <input [(ngModel)]="review.reviewer" type="text">
+        </label>
+    </div>
+    <div>
+        <label for="">
+            Reviewee(by id): <input [(ngModel)]="review.reviewee" type="text">
+        </label>
+    </div>
+    <div>
+        <label for="">
+            Comments: <textarea [(ngModel)]="review.comments" name="" id="" cols="30" rows="10"></textarea>
+        </label>
+    </div>
+    <input (click)="onSubmit()" type="button" value="Submit">
+</div>

@@ -24,6 +24,8 @@ export class ReviewService {
   }
 
   addReview(review: Review): Observable<any>{
+    review.reviewee = Number(review.reviewee);
+    review.reviewer = Number(review.reviewer);
     return this.http.post<any>(`${this.url}/reviews/add`, { ...review });
   }
 }
