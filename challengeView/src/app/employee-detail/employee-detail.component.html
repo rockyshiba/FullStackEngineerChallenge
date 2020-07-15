@@ -33,5 +33,42 @@
             <input (click)="onUpdate()" type="button" value="{{status}}">
         </div>
         <button (click)="onDelete(employee.id)">Delete {{employee.first_name}} {{employee.last_name}}</button>
+        <div *ngIf="reviews">
+            <h2>Reviews by Employee</h2>
+            <ul>
+                <li *ngFor="let r of reviewer">
+                    <div>
+                        For <a routerLink="/employees/{{r.reviewee}}">Employee {{ r.reviewee }}</a>
+                    </div>
+                    <div>
+                        Created: {{ r.created | date }}
+                    </div>
+                    <div *ngIf="r.updated">
+                        Updated: {{ r.updated | date }}
+                    </div>
+                    <div *ngIf="r.comments">
+                        Comments: <textarea [(ngModel)]="r.comments" name="message" id="" cols="30" rows="10">{{ r.comments }}</textarea>
+                    </div>
+                    <button (click)="onReviewUpdate(r)">Update review</button>
+                </li>
+            </ul>
+            <h2>Reviewed by Others</h2>
+            <ul>
+                <li *ngFor="let r of reviewee">
+                    <div>
+                        By <a routerLink="/employees/{{r.reviewer}}">Employee {{ r.reviewer }}</a>
+                    </div>
+                    <div>
+                        Created: {{ r.created | date }}
+                    </div>
+                    <div *ngIf="r.updated">
+                        Updated: {{ r.updated | date }}
+                    </div>
+                    <div *ngIf="r.comments">
+                        Comments: {{ r.comments }}
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

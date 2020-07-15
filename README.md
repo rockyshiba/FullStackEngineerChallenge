@@ -41,4 +41,4 @@ Design a web application that allows employees to submit feedback toward each ot
 
 ### Frontend
 
-* CRU for employee reviews
+* U for employee reviews
